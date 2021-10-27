@@ -30,5 +30,18 @@ public class MyStepdefs {
         res *= 10;
         int es = (int) res;
         Assert.assertEquals(arg1, es); }
+
+    @When("^I sqr the value$") public void iSqrTheValue() {
+        res = calculator.sqr(value3);
+        String.format("%.1f", res);
+        System.out.print(res); }
+
+
+    @Then("^I expect the sqr result (\\d+)\\.(\\d+)$")
+    public void iExpectTheSqrResult(int arg0, int arg1) {
+        res *= 10;
+        int es = (int) res;
+        arg1 = arg0*10 + arg1;
+        Assert.assertEquals(arg1, es); }
 }
 
